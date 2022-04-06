@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="198" pageHeight="311" columnWidth="188" leftMargin="5" rightMargin="5" topMargin="5" bottomMargin="0" uuid="3dd54068-4470-44d8-ae9a-9f92feec345e">
+	<property name="ireport.zoom" value="2.9282000000000012"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="52"/>
+	<parameter name="tanggal" class="java.lang.String"/>
+	<parameter name="jumlahtindakan" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select tbl_rm.nama_pasien,tbl_tagihan.*,
+tbl_pembayaran.*,tbl_resep.*, tbl_obat.nama_obat
+ from tbl_pelayanan 
+inner join tbl_rm using(kode_rm) 
+inner join tbl_tagihan using(id_pendaftaran) 
+inner join tbl_resep using(id_pendaftaran) 
+inner join tbl_pembayaran using(id_pendaftaran) 
+inner join tbl_obat on tbl_obat.id_obat=tbl_resep.id_obat
+
+where id_pendaftaran='RJ-000002']]>
+	</queryString>
+	<field name="nama_pasien" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_pendaftaran" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tarif_dokter" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tarif_admin" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tarif_obat" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="penunjang" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tarif_tindakan" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="status_resep" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tagihan" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="bayar" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kembalian" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="status_bayar" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_obat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jumlah_obat" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="harga_obat" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="keterangan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_obat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="15" uuid="2fca370b-7f30-4335-bb03-2b78824f99df"/>
+				<textElement>
+					<font fontName="Serif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Klinik Kartika Husada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="8" width="129" height="22" uuid="5b8e9cd7-f3a5-466a-85f5-a869d5e4c7c4"/>
+				<textElement>
+					<font fontName="Serif" size="8"/>
+				</textElement>
+				<text><![CDATA[Tempursari, Donomulyo Kab. Malang Jawa Timur 65167]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="38" splitType="Stretch">
+			<staticText>
+				<reportElement x="64" y="-2" width="78" height="15" uuid="0b535c86-2501-47b7-8880-3c6f84448663"/>
+				<textElement>
+					<font fontName="Serif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nota Pembayaran]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="7" width="39" height="15" uuid="e4c68900-5109-4223-aeb0-d34810e1c48f"/>
+				<textElement>
+					<font fontName="Serif" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Tanggal :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="43" y="22" width="88" height="15" uuid="40fb8d23-d2c5-4864-aaa1-87bd7407f3df"/>
+				<textElement>
+					<font fontName="Serif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_pasien}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="22" width="39" height="15" uuid="4bca7804-c165-4312-bc7e-005d1675e8b1"/>
+				<textElement>
+					<font fontName="Serif" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Pasien    :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="43" y="8" width="100" height="15" uuid="cd904cfd-5d43-474d-9d26-5d4f83a308a6"/>
+				<textElement>
+					<font fontName="Serif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tanggal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="13" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="79" height="13" uuid="1e9127ff-8416-440d-a83b-60eacf1de572"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="8"/>
+				</textElement>
+				<text><![CDATA[Nama Pembayaran]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="11" width="188" height="1" uuid="e2d0ea84-ec1c-47f0-b3e2-aa262f35f8a7"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="188" height="1" uuid="1b02a06b-9420-4465-869a-88c9c8648245"/>
+			</line>
+			<staticText>
+				<reportElement x="109" y="0" width="77" height="13" uuid="25f32373-14fe-4cc4-b2d0-7aba7f5755b7"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="8"/>
+				</textElement>
+				<text><![CDATA[Quantity]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="13">
+			<textField>
+				<reportElement x="109" y="0" width="77" height="13" uuid="03db3f1f-007b-482f-aa98-b6c2cecdbff6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jumlah_obat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="0" width="107" height="13" uuid="48391f2e-720c-4394-a5bd-db530e6f8009"/>
+				<textElement>
+					<font fontName="Serif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_obat}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="90" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="26" width="188" height="1" uuid="3d068100-b87d-48a5-afe1-de524c277811"/>
+			</line>
+			<staticText>
+				<reportElement x="58" y="27" width="42" height="15" uuid="90df2e69-c719-4fa6-851b-1b2eef3a7a97"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Serif" size="8"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="58" y="42" width="42" height="15" uuid="655361ba-89b2-4afa-a68d-3a0bf76f9205"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Serif" size="8"/>
+				</textElement>
+				<text><![CDATA[Bayar]]></text>
+			</staticText>
+			<textField pattern="#,##0.00;#,##0.00-">
+				<reportElement x="130" y="42" width="59" height="15" uuid="4df016b9-c50a-4589-87a3-17bed627f510"/>
+				<textElement>
+					<font fontName="Serif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bayar}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;#,##0.00-">
+				<reportElement x="111" y="58" width="77" height="15" uuid="df58731c-ec67-4b8f-a15d-7f225868d4ba"/>
+				<textElement>
+					<font fontName="Serif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kembalian}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="58" y="58" width="53" height="15" uuid="a2538035-15ff-4bd9-b674-53b2a479674a"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Serif" size="8"/>
+				</textElement>
+				<text><![CDATA[Kembalian]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="111" y="27" width="18" height="13" uuid="b47ef6a0-47a2-4b42-b644-7f485100614a"/>
+				<textElement>
+					<font fontName="Serif" size="8"/>
+				</textElement>
+				<text><![CDATA[Rp.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="111" y="40" width="18" height="13" uuid="2c6cba91-dcce-45d8-b227-8fd80cc438a0"/>
+				<textElement>
+					<font fontName="Serif" size="8"/>
+				</textElement>
+				<text><![CDATA[Rp.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="60" y="56" width="128" height="1" uuid="f0697ed6-a020-4702-95fc-34887a742241"/>
+			</line>
+			<staticText>
+				<reportElement x="2" y="13" width="79" height="13" uuid="ddc358f9-e107-41a4-a679-42f072833369"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Serif" size="8"/>
+				</textElement>
+				<text><![CDATA[Administrasi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="111" y="13" width="75" height="13" uuid="59ac6d78-eeaf-4e2f-b96e-94da539f6bf8"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="73" width="119" height="15" uuid="88c343a4-a006-4821-9590-0eb5e27da094"/>
+				<textElement>
+					<font fontName="Serif" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[* Semoga lekas sembuh]]></text>
+			</staticText>
+			<textField pattern="#,##0.00;#,##0.00-">
+				<reportElement x="131" y="27" width="57" height="20" uuid="482d182a-620a-4b06-85af-922b64e3cbe8"/>
+				<textElement>
+					<font fontName="Serif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tagihan}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="188" height="1" uuid="0df6a13a-6459-4a9b-a377-b367d6966766"/>
+			</line>
+			<staticText>
+				<reportElement x="2" y="1" width="77" height="13" uuid="a2fdfff9-e451-4250-927d-998a4f306cb9"/>
+				<textElement>
+					<font fontName="Serif" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Tindakan Dokter]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="116" y="1" width="65" height="13" uuid="ee07e50b-d083-4c04-835e-60141b528784"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{jumlahtindakan}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
