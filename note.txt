@@ -1,0 +1,5 @@
+1. form tambah daerah //Sudah
+2. form ganti nama klinik //sudah
+3. update laporan-laporan
+4. tambahkan parameter laporan-laporan
+5. cetak laporan rawat inap tidak bisa per tanggal

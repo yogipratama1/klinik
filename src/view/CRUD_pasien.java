@@ -760,12 +760,12 @@ public class CRUD_pasien extends javax.swing.JFrame {
 
     private void btnsimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsimpanActionPerformed
         simpanpelayanan();
-        try {
-            cetakperpasien();
-            Resetform();
-        } catch (JRException ex) {
-            Logger.getLogger(CRUD_pasien.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            cetakperpasien();
+//            Resetform();
+//        } catch (JRException ex) {
+//            Logger.getLogger(CRUD_pasien.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_btnsimpanActionPerformed
 
     private void btnbatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbatalActionPerformed

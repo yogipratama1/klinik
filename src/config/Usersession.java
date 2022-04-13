@@ -15,6 +15,24 @@ public class Usersession {
     public static String nama;
     public static String username;
     public static String level;
+    public static String namaKlinik;
+    public static String alamatKlinik;
+
+    public static String getNamaKlinik() {
+        return namaKlinik;
+    }
+
+    public static void setNamaKlinik(String namaKlinik) {
+        Usersession.namaKlinik = namaKlinik;
+    }
+
+    public static String getAlamatKlinik() {
+        return alamatKlinik;
+    }
+
+    public static void setAlamatKlinik(String alamatKlinik) {
+        Usersession.alamatKlinik = alamatKlinik;
+    }
 
     public static String getId() {
         return id;

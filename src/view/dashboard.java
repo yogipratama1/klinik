@@ -48,6 +48,8 @@ public class dashboard extends javax.swing.JFrame {
     String username = Usersession.getUsername();
     String nama = Usersession.getNama();
     String level = Usersession.getLevel();
+    String namaKlinik = Usersession.getNamaKlinik();
+    String alamatKlinik = Usersession.getAlamatKlinik();
 
     public dashboard() {
         initComponents();
@@ -55,6 +57,8 @@ public class dashboard extends javax.swing.JFrame {
         tampilpelayanan();
         tampilICD();
 
+        tnamaKlinik.setText(namaKlinik);
+        talamatklinik.setText(alamatKlinik);
         tidpendaftaran.setEnabled(false);
         tnorm.setEnabled(false);
         tnamapasien.setEnabled(false);
@@ -136,6 +140,7 @@ public class dashboard extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tkeluhan = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         tabelicd = new javax.swing.JFrame();
         jPanel4 = new javax.swing.JPanel();
@@ -145,7 +150,17 @@ public class dashboard extends javax.swing.JFrame {
         tblicd = new javax.swing.JTable();
         tcari = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        settingApk = new javax.swing.JFrame();
+        kGradientPanel1 = new keeptoo.KGradientPanel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        in_namaklinik = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        in_alamatklinik = new javax.swing.JTextField();
+        btn_simpanKlinik = new javax.swing.JButton();
+        jLabel24 = new javax.swing.JLabel();
+        tnamaKlinik = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         ttanggal = new javax.swing.JTextField();
@@ -154,11 +169,11 @@ public class dashboard extends javax.swing.JFrame {
         t_user = new javax.swing.JLabel();
         t_level = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        talamatklinik = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbltransaksi = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jLabel25 = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -172,6 +187,8 @@ public class dashboard extends javax.swing.JFrame {
         jMenuItem6 = new javax.swing.JMenuItem();
         datapenunjang1 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
+        jMenuItem13 = new javax.swing.JMenuItem();
+        jMenuItem14 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         rawatinap = new javax.swing.JMenuItem();
         mntambahpasien = new javax.swing.JMenuItem();
@@ -332,6 +349,9 @@ public class dashboard extends javax.swing.JFrame {
         tkeluhan.setRows(5);
         jScrollPane3.setViewportView(tkeluhan);
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("* Ket : harga administrasi (jika ada)");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -390,14 +410,17 @@ public class dashboard extends javax.swing.JFrame {
                                         .addComponent(btnsimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(28, 28, 28)
                                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(tadmin, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(tadmin, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel2))
                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel3Layout.createSequentialGroup()
                                             .addComponent(ticd, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(18, 18, 18)
                                             .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(237, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -449,8 +472,7 @@ public class dashboard extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(133, 133, 133))
+                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -458,12 +480,14 @@ public class dashboard extends javax.swing.JFrame {
                             .addComponent(ticd, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(tadmin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnsimpan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(54, Short.MAX_VALUE))))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tadmin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnsimpan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         dataperiksa.getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 89, 862, -1));
@@ -561,14 +585,116 @@ public class dashboard extends javax.swing.JFrame {
 
         tabelicd.getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 720, 430));
 
+        settingApk.setMinimumSize(new java.awt.Dimension(650, 450));
+
+        kGradientPanel1.setkEndColor(new java.awt.Color(153, 153, 255));
+        kGradientPanel1.setkStartColor(new java.awt.Color(102, 51, 255));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Software Setting");
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Nama Klinik   :");
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("This Application was builded on March 2021 by Yogi Khoirul Anwar");
+
+        in_namaklinik.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setText("Alamat Klinik :");
+
+        in_alamatklinik.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+
+        btn_simpanKlinik.setBackground(new java.awt.Color(0, 153, 153));
+        btn_simpanKlinik.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btn_simpanKlinik.setText("Simpan");
+        btn_simpanKlinik.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_simpanKlinikActionPerformed(evt);
+            }
+        });
+
+        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setText("For More Information or Maintenance, Please call On yogikhoirul2405@gmail.com");
+
+        javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
+        kGradientPanel1.setLayout(kGradientPanel1Layout);
+        kGradientPanel1Layout.setHorizontalGroup(
+            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                .addContainerGap(49, Short.MAX_VALUE)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(227, 227, 227))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(65, 65, 65))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32))))
+            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addGap(79, 79, 79)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(in_namaklinik, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(in_alamatklinik, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_simpanKlinik, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        kGradientPanel1Layout.setVerticalGroup(
+            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(in_namaklinik, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(in_alamatklinik, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(54, 54, 54)
+                .addComponent(btn_simpanKlinik, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(41, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout settingApkLayout = new javax.swing.GroupLayout(settingApk.getContentPane());
+        settingApk.getContentPane().setLayout(settingApkLayout);
+        settingApkLayout.setHorizontalGroup(
+            settingApkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        settingApkLayout.setVerticalGroup(
+            settingApkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistem Rawat Jalan");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setFont(new java.awt.Font("Tekton Pro", 1, 36)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Klinik Kartika Husada");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, -1, -1));
+        tnamaKlinik.setFont(new java.awt.Font("Tekton Pro", 1, 36)); // NOI18N
+        tnamaKlinik.setForeground(new java.awt.Color(255, 255, 255));
+        tnamaKlinik.setText("Your Clinic Name");
+        getContentPane().add(tnamaKlinik, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 460, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -635,10 +761,10 @@ public class dashboard extends javax.swing.JFrame {
         jLabel6.setText("TABEL PEMERIKSAAN PASIEN");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 390, 30));
 
-        jLabel2.setFont(new java.awt.Font("Tekton Pro", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Kecamatan Donomulyo Kabupaten Malang");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, -1, 40));
+        talamatklinik.setFont(new java.awt.Font("Tekton Pro", 1, 24)); // NOI18N
+        talamatklinik.setForeground(new java.awt.Color(255, 255, 255));
+        talamatklinik.setText("Alamat Klinik");
+        getContentPane().add(talamatklinik, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 480, 40));
 
         tbltransaksi.setAutoCreateRowSorter(true);
         tbltransaksi.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -662,9 +788,6 @@ public class dashboard extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 1250, 410));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logodashboard.jpg"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
-
         jButton2.setBackground(new java.awt.Color(0, 153, 153));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setText("Refresh Form");
@@ -674,6 +797,9 @@ public class dashboard extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 180, 150, 50));
+
+        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logo hospital(1).png"))); // NOI18N
+        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 120, 120));
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/bg-dashboard.jpg"))); // NOI18N
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -771,6 +897,24 @@ public class dashboard extends javax.swing.JFrame {
             }
         });
         datapenunjang.add(jMenuItem12);
+
+        jMenuItem13.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jMenuItem13.setText("Data Daerah");
+        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem13ActionPerformed(evt);
+            }
+        });
+        datapenunjang.add(jMenuItem13);
+
+        jMenuItem14.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jMenuItem14.setText("Setting Apk");
+        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem14ActionPerformed(evt);
+            }
+        });
+        datapenunjang.add(jMenuItem14);
 
         jMenuBar1.add(datapenunjang);
 
@@ -1094,6 +1238,32 @@ public class dashboard extends javax.swing.JFrame {
       new CRUD_DataRM().setVisible(true);
     }//GEN-LAST:event_jMenuItem12ActionPerformed
 
+    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
+         new CRUD_daerah().setVisible(true);
+    }//GEN-LAST:event_jMenuItem13ActionPerformed
+
+    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
+       settingApk.setVisible(true);
+       tampilKlinik();
+    }//GEN-LAST:event_jMenuItem14ActionPerformed
+
+    private void btn_simpanKlinikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanKlinikActionPerformed
+        String namaklinik = in_namaklinik.getText();
+        String alamatKlinik = in_alamatklinik.getText();
+        try {
+            con.createStatement().executeUpdate("insert into tbl_namaklinik "
+                    + "set nama_klinik='" +namaklinik+ "', alamat_klinik='" +alamatKlinik+ "'");
+            JOptionPane.showMessageDialog(null, "Update Nama klinik Berhasil !!");
+            Usersession.setNamaKlinik(namaklinik);
+            Usersession.setAlamatKlinik(alamatKlinik);
+            tnamaKlinik.setText(namaklinik);
+            talamatklinik.setText(alamatKlinik);
+            tampilKlinik();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_btn_simpanKlinikActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1131,12 +1301,15 @@ public class dashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
+    private javax.swing.JButton btn_simpanKlinik;
     private javax.swing.JButton btnsimpan;
     private javax.swing.JComboBox<String> cbketerangan;
     private javax.swing.JComboBox<String> cbumumbpjs;
     private javax.swing.JMenu datapenunjang;
     private javax.swing.JMenuItem datapenunjang1;
     private javax.swing.JFrame dataperiksa;
+    private javax.swing.JTextField in_alamatklinik;
+    private javax.swing.JTextField in_namaklinik;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -1152,16 +1325,20 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
@@ -1170,6 +1347,8 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem13;
+    private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
@@ -1186,6 +1365,7 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JMenuItem laporanapotik;
     private javax.swing.JMenuItem mnapotik;
     private javax.swing.JMenuItem mndataobat;
@@ -1193,10 +1373,12 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JMenuItem mntambahuser;
     private javax.swing.JMenuItem mntarifdokter;
     private javax.swing.JMenuItem rawatinap;
+    private javax.swing.JFrame settingApk;
     private javax.swing.JLabel t_level;
     private javax.swing.JLabel t_user;
     private javax.swing.JFrame tabelicd;
     private javax.swing.JTextField tadmin;
+    private javax.swing.JLabel talamatklinik;
     private javax.swing.JTable tblicd;
     private javax.swing.JTable tbltransaksi;
     private javax.swing.JTextField tcari;
@@ -1204,6 +1386,7 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JTextField tidpendaftaran;
     private javax.swing.JTextArea tkeluhan;
     private javax.swing.JTextField tkriteria;
+    private javax.swing.JLabel tnamaKlinik;
     private javax.swing.JTextField tnamapasien;
     private javax.swing.JTextField tnorm;
     private javax.swing.JTextField tpetugas;
@@ -1294,8 +1477,8 @@ public void tampilpelayanan() {
 
     public void tarif() {
 
-        String sql = "select *,tbl_perawatan.*,tbl_tarifperawatan.* from tbl_tarifperawatan "
-                + " Inner join tbl_perawatan using(id_petugas) "
+        String sql = "select *,tbl_jenispemeriksa.*,tbl_tarifperawatan.* from tbl_tarifperawatan "
+                + " Inner join tbl_jenispemeriksa using(id_petugas) "
                 + "where nama_petugas='" + tpetugas.getText() + "'";
         System.out.println(sql);
         try {
@@ -1670,6 +1853,21 @@ public void tampilpelayanan() {
                     + "'"+rm+"','"+umur+"','"+tanggal+"','"+keluhan+"','"+icd+"')");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Gagal Insert ke tbl_datasakit "+e);
+        }
+    }
+    public void tampilKlinik(){
+        try {
+            String sql = "select * from tbl_namaklinik";
+            rs = con.createStatement().executeQuery(sql);
+            while (rs.next()) {
+                String namaKlinik = rs.getString("nama_klinik");
+                String alamatklinik = rs.getString("alamat_klinik");
+                
+                in_namaklinik.setText(namaKlinik);
+                in_alamatklinik.setText(alamatklinik);
+                
+            }
+        } catch (Exception e) {
         }
     }
 }

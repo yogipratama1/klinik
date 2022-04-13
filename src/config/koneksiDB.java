@@ -7,6 +7,7 @@ package config;
 
 import com.mysql.jdbc.Connection;
 import java.sql.DriverManager;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,6 +23,8 @@ public class koneksiDB {
             con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/klinik2","root","");
         } catch (Exception e) {
             System.out.println(e);
+            JOptionPane.showMessageDialog(null, "Koneksi Gagal !! Periksa Server anda !!");
+            System.exit(0);
         }
         return con;
         

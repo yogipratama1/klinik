@@ -289,7 +289,7 @@ public class CRUD_Tarifdokter extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     public void comboPoli() {
 
-        String sql = "SELECT * FROM tbl_perawatan ";
+        String sql = "SELECT * FROM tbl_jenispemeriksa ";
 
         try {
             pst = con.prepareStatement(sql);
@@ -304,7 +304,7 @@ public class CRUD_Tarifdokter extends javax.swing.JFrame {
 
     public void tampilidpoli() {
 
-        String sql = "select * from tbl_perawatan where nama_petugas='" + cbpoli.getSelectedItem().toString() + "'";
+        String sql = "select * from tbl_jenispemeriksa where nama_petugas='" + cbpoli.getSelectedItem().toString() + "'";
         try {
             rs = con.createStatement().executeQuery(sql);
             while (rs.next()) {

@@ -5,6 +5,8 @@
 	<property name="ireport.y" value="0"/>
 	<parameter name="tanggal_awal" class="java.lang.String"/>
 	<parameter name="tanggal_akhir" class="java.lang.String"/>
+	<parameter name="namaklinik" class="java.lang.String"/>
+	<parameter name="alamatKlinik" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[select tbl_obat.nama_obat, tbl_pembelianobat.* from tbl_pembelianobat 
 inner join tbl_obat using(id_obat)]]>
@@ -42,20 +44,6 @@ inner join tbl_obat using(id_obat)]]>
 	<pageHeader>
 		<band height="76" splitType="Stretch">
 			<staticText>
-				<reportElement x="2" y="0" width="152" height="20" uuid="c5747861-8a8e-49ab-8e25-9d0e09bd4a1b"/>
-				<textElement>
-					<font size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[KLINIK KARTIKA HUSADA]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="2" y="17" width="174" height="38" uuid="b17ebb3c-58de-4422-ae92-0991161424df"/>
-				<textElement>
-					<font size="12" isBold="false"/>
-				</textElement>
-				<text><![CDATA[Tempursari, Kecamatan Donomulyo Kabupaten Malang]]></text>
-			</staticText>
-			<staticText>
 				<reportElement x="213" y="35" width="152" height="20" uuid="96f51da6-8c92-4684-b68e-4ac30174f519"/>
 				<textElement>
 					<font size="12" isBold="true"/>
@@ -90,6 +78,17 @@ inner join tbl_obat using(id_obat)]]>
 			<textField>
 				<reportElement x="392" y="55" width="100" height="20" uuid="ec77d55d-e9c2-45f3-b2fd-b8302e6c758e"/>
 				<textFieldExpression><![CDATA[$P{tanggal_akhir}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="0" width="211" height="20" uuid="63cf4ab9-b65d-461c-9afa-836d6ed398e4"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{namaklinik}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="5" y="20" width="208" height="20" uuid="6ab1206a-92b2-4d32-bfb6-26585d0dc178"/>
+				<textFieldExpression><![CDATA[$P{alamatKlinik}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>

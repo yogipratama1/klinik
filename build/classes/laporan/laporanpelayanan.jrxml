@@ -115,10 +115,6 @@ inner join tbl_pembayaran using(id_pendaftaran)]]>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{kriteria}]]></textFieldExpression>
 			</textField>
-			<image>
-				<reportElement x="17" y="6" width="100" height="50" uuid="8b509577-09e8-4a76-a024-3224c62e37ef"/>
-				<imageExpression><![CDATA["C:\\Users\\WINDOWS 10\\Documents\\NetBeansProjects\\klinik\\src\\image\\logobmp.bmp"]]></imageExpression>
-			</image>
 		</band>
 	</pageHeader>
 	<columnHeader>
